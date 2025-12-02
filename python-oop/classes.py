@@ -6,16 +6,27 @@ class Book:
 
 class Library:
     def __init__(self, name):
-        pass
+        self.name = name
+        self.books = []
 
     def add_book(self, book):
-        pass
+        self.books.append(book)
 
     def remove_book(self, book):
-        pass
+        self.keep = []
+        for content in self.books:
+            if book.author == content.author or book.title == content.title:
+                continue
+            else:
+                self.keep.append(content)
+        self.books = self.keep
 
     def search_books(self, search_string):
-        pass
+        self.searched = []
+        for book in self.books:
+            if search_string.lower() in book.author.lower() or search_string.lower() in book.title.lower() :
+                self.searched.append(book)
+        return self.searched
 
 
 run_cases = [
